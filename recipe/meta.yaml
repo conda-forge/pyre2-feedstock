@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/andreasvc/pyre2/archive/v{{ version }}.tar.gz
   sha256: 287f75e1612d4540625c9c6fea88adb26bcd4e1e83cf74e8bbef1b019a57f332
+  patches:
+    - setup-py.patch
 
 build:
-  number: 1
+  number: 2
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win or py<36]
 
