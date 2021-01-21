@@ -21,7 +21,9 @@ requirements:
     - python
     - cython
     - pip
+    - setuptools
     - re2
+
   run:
     - python
     - re2
