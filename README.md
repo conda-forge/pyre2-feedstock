@@ -1,7 +1,7 @@
 About pyre2
 ===========
 
-Home: https://github.com/andreasvc/pyre2
+Home: https://pypi.org/project/pyre2/
 
 Package license: BSD-3-Clause
 
