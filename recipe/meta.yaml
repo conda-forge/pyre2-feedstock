@@ -1,5 +1,5 @@
 {% set name = "pyre2" %}
-{% set version = "0.3.2" %}
+{% set version = "0.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,20 +7,21 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2234533c16bfd49234fe9f7ca694ccc7b7e26e5642cac3fd7874ac73f144668b
-  patches:
-    - setup-py.patch
+  sha256: c6371a3494c33b74f4291aa755d6f50ebd78dc1d08e33e48f00c7517f60ef395
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win or py<36]
+  skip: true  # [py<36]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
   host:
     - python
+    - cmake >=3.15
+    - pybind11
+    - ninja
     - cython
     - pip
     - re2
