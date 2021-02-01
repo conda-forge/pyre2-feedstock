@@ -1,26 +1,28 @@
 {% set name = "pyre2" %}
-{% set version = "0.3.2" %}
+{% set version = "0.3.3" %}
+{% set sha256 = "90fb5af5939f141be9252569b3f6dbd301ddc2bbe0e1ccd79711cbf57e1535a2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 2234533c16bfd49234fe9f7ca694ccc7b7e26e5642cac3fd7874ac73f144668b
-  patches:
-    - setup-py.patch
+  url: https://github.com/andreasvc/pyre2/archive/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
 
 build:
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
-  skip: true  # [win or py<36]
+  skip: true  # [py<36]
 
 requirements:
   build:
     - {{ compiler('cxx') }}
   host:
     - python
+    - cmake >=3.15
+    - pybind11
+    - ninja
     - cython
     - pip
     - re2
@@ -29,12 +31,14 @@ requirements:
     - re2
 
 test:
+  commands:
+    - export "PYTHONIOENCODING=utf8"  # [unix]
+    - set "PYTHONIOENCODING=utf8"  # [win]
+    - python -m unittest discover -f -s tests
   imports:
     - re2
   source_files:
     - tests
-  commands:
-    - python -m unittest discover -f -s tests
 
 about:
   home: "https://pypi.org/project/pyre2/"
