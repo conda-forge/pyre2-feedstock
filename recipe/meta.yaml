@@ -32,7 +32,8 @@ requirements:
 
 test:
   commands:
-    - export "PYTHONIOENCODING=utf8"
+    - export "PYTHONIOENCODING=utf8"  # [unix]
+    - set "PYTHONIOENCODING=utf8"  # [win]
     - python -m unittest discover -f -s tests
   imports:
     - re2
