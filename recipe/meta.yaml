@@ -1,6 +1,6 @@
 {% set name = "pyre2" %}
-{% set version = "0.3.3" %}
-{% set sha256 = "90fb5af5939f141be9252569b3f6dbd301ddc2bbe0e1ccd79711cbf57e1535a2" %}
+{% set version = "0.3.6" %}
+{% set sha256 = "2115d325b2793e85a6a488af9c6de5efbb5f850157b613a9245b791da436a318" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<36]
 
@@ -41,13 +41,13 @@ test:
     - tests
 
 about:
-  home: "https://pypi.org/project/pyre2/"
+  home: https://pypi.org/project/pyre2/
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE
-  summary: "Python wrapper for Google's RE2 using Cython"
-  doc_url: "https://github.com/andreasvc/pyre2/blob/master/README.rst"
-  dev_url: "https://github.com/andreasvc/pyre2"
+  summary: Python wrapper for Google's RE2 using Cython
+  doc_url: https://github.com/andreasvc/pyre2/blob/master/README.rst
+  dev_url: https://github.com/andreasvc/pyre2
 
 extra:
   recipe-maintainers:
