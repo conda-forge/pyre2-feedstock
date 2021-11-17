@@ -17,6 +17,8 @@ build:
 
 requirements:
   build:
+    - ninja
+    - cmake >=3.15
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
@@ -24,9 +26,7 @@ requirements:
     - {{ compiler('cxx') }}
   host:
     - python
-    - cmake >=3.15
     - pybind11
-    - ninja
     - cython
     - pip
     - re2
