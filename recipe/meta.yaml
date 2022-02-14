@@ -19,6 +19,7 @@ requirements:
   build:
     - ninja
     - cmake >=3.15
+    - make                                   # [unix]
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
