@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 12
+  number: 13
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<36]
 
@@ -25,6 +25,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pybind11
