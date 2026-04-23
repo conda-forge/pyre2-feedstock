@@ -1,6 +1,6 @@
 {% set name = "pyre2" %}
-{% set version = "0.3.6" %}
-{% set sha256 = "6a0a2c70b1ce98d870ce9423368cc83bbacc8a41f6e066296e197a26a842ede7" %}
+{% set version = "0.3.9" %}
+{% set sha256 = "51398b4e749e9de55936c411f2e1b18e32a0e6ad1e00f095a105cc2310f92fb6" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 12
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py<36]
 
@@ -25,6 +25,7 @@ requirements:
     - cython                                 # [build_platform != target_platform]
     - pybind11                               # [build_platform != target_platform]
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - python
     - pybind11
